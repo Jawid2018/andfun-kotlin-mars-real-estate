@@ -59,6 +59,10 @@ class OverviewFragment : Fragment() {
             viewModel.displayPropertyDetails(it)
         })
 
+        binding.photosGrid.adapter = PhotoGridAdapter(PhotoGridAdapter.OnClickListener { mars ->
+            viewModel.displayPropertyDetails(mars)
+        })
+
         // Observe the navigateToSelectedProperty LiveData and Navigate when it isn't null
         // After navigating, call displayPropertyDetailsComplete() so that the ViewModel is ready
         // for another navigation event.

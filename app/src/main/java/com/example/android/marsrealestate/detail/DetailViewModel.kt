@@ -53,7 +53,7 @@ class DetailViewModel(marsProperty: MarsProperty, app: Application) : AndroidVie
 
     // The displayPropertyType formatted Transformation Map LiveData, which displays the
     // "For Rent/Sale" String
-    val displayPropertyType = Transformations.map(selectedProperty) {
+    val displayPropertyType: LiveData<String> = Transformations.map(selectedProperty) {
         app.applicationContext.getString(R.string.display_type,
             app.applicationContext.getString(
                 when(it.isRental) {
